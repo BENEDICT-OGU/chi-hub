@@ -5,8 +5,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Chihub ventures | Artisanal Confections</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script id="tailwind-config">
         tailwind.config = {
@@ -121,34 +121,32 @@
         </div>
     </div>
 
-    <!-- WHATSAPP CONSULTATION MODAL -->
-    <div class="modal" id="consultationModal">
-        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden relative" onclick="event.stopPropagation()">
-            <button onclick="closeConsultation()" class="absolute top-4 right-4 text-chocolate/50 hover:text-chocolate transition-colors z-10">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-            <div class="bg-chocolate p-8 text-cream text-center">
-                <span class="text-5xl mb-4 block">🎂</span>
-                <h2 class="text-2xl font-display font-bold mb-2">Book a Consultation</h2>
-                <p class="text-cream/80 text-sm font-sans">Let's create something amazing together!</p>
+    <!-- WHATSAPP CONSULTATION MODAL - REDESIGNED -->
+    <div class="modal" id="consultationModal" onclick="closeConsultation()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeConsultation()">✕</button>
+            
+            <div class="modal-header">
+                <span class="icon">🎂</span>
+                <h2>Book a Consultation</h2>
+                <p>Let's create something amazing together!</p>
             </div>
-            <div class="p-8">
+            
+            <div class="modal-body">
                 <form id="consultationForm" class="space-y-4">
                     <div>
-                        <label class="block text-sm font-sans font-semibold text-chocolate mb-2">Your Name</label>
+                        <label for="consultName">Your Name</label>
                         <input type="text" id="consultName" required 
-                               class="w-full px-4 py-3 rounded-xl border border-chocolate/20 focus:border-caramel focus:outline-none transition-colors"
                                placeholder="Enter your full name"/>
                     </div>
                     <div>
-                        <label class="block text-sm font-sans font-semibold text-chocolate mb-2">Phone Number</label>
+                        <label for="consultPhone">Phone Number</label>
                         <input type="tel" id="consultPhone" required 
-                               class="w-full px-4 py-3 rounded-xl border border-chocolate/20 focus:border-caramel focus:outline-none transition-colors"
                                placeholder="e.g., 08012345678"/>
                     </div>
                     <div>
-                        <label class="block text-sm font-sans font-semibold text-chocolate mb-2">What do you need?</label>
-                        <select id="consultType" class="w-full px-4 py-3 rounded-xl border border-chocolate/20 focus:border-caramel focus:outline-none transition-colors">
+                        <label for="consultType">What do you need?</label>
+                        <select id="consultType">
                             <option value="Wedding Cake">Wedding Cake</option>
                             <option value="Birthday Cake">Birthday Cake</option>
                             <option value="Pastries">Nigerian Pastries</option>
@@ -158,24 +156,23 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-sans font-semibold text-chocolate mb-2">Event Date</label>
-                        <input type="date" id="consultDate" 
-                               class="w-full px-4 py-3 rounded-xl border border-chocolate/20 focus:border-caramel focus:outline-none transition-colors"/>
+                        <label for="consultDate">Event Date</label>
+                        <input type="date" id="consultDate"/>
                     </div>
                     <div>
-                        <label class="block text-sm font-sans font-semibold text-chocolate mb-2">Additional Details</label>
+                        <label for="consultDetails">Additional Details</label>
                         <textarea id="consultDetails" rows="3"
-                                  class="w-full px-4 py-3 rounded-xl border border-chocolate/20 focus:border-caramel focus:outline-none transition-colors"
                                   placeholder="Any special requirements or preferences..."></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-[#25D366] text-white py-4 rounded-xl font-sans font-semibold hover:bg-[#20bd5a] transition-all flex items-center justify-center gap-2">
-                        <svg viewBox="0 0 32 32" class="w-5 h-5 fill-current">
-                            <path d="M16 0C7.164 0 0 7.164 0 16c0 2.816 0.736 5.472 2.016 7.808L0 32l8.512-2.224C10.848 31.072 13.36 32 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0z"/>
-                        </svg>
+                    <button type="submit" class="whatsapp-btn">
+                        <svg viewBox="0 0 32 32"><path d="M16 0C7.164 0 0 7.164 0 16c0 2.816 0.736 5.472 2.016 7.808L0 32l8.512-2.224C10.848 31.072 13.36 32 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0z"/></svg>
                         Continue on WhatsApp
                     </button>
                 </form>
-                <p class="text-xs text-chocolate/40 text-center mt-4 font-sans">You'll be redirected to WhatsApp to complete your booking</p>
+            </div>
+            
+            <div class="modal-footer">
+                You'll be redirected to WhatsApp to complete your booking
             </div>
         </div>
     </div>
@@ -540,7 +537,7 @@
                     </div>
                     <div class="border-l-2 border-caramel pl-6 py-2">
                         <p class="text-lg font-display italic text-chocolate/80">"Perfection is in the details, and we never compromise."</p>
-                        <p class="text-sm font-sans text-chocolate/50 mt-2">— Marie Laurent, Founder</p>
+                        <p class="text-sm font-sans text-chocolate/50 mt-2">— ezikeiheoma chisom, Founder</p>
                     </div>
                     <button class="btn-primary bg-chocolate text-cream px-8 py-4 rounded-full text-sm font-sans font-semibold tracking-wider hover:bg-chocolate/90 transition-all inline-flex items-center gap-2 group">
                         Our Full Story
@@ -957,10 +954,12 @@
 
         function openConsultation() {
             document.getElementById('consultationModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeConsultation() {
             document.getElementById('consultationModal').classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         document.getElementById('consultationForm').addEventListener('submit', function(e) {
@@ -976,15 +975,9 @@
             this.reset();
         });
 
-        document.getElementById('consultationModal').addEventListener('click', function(e) {
-            if (e.target === this) closeConsultation();
-        });
-
         // ==================== SEARCH ====================
         function openSearch() { document.getElementById('searchModal').classList.add('active'); document.getElementById('searchInput').focus(); }
         function closeSearch() { document.getElementById('searchModal').classList.remove('active'); document.getElementById('searchInput').value = ''; document.getElementById('searchResults').innerHTML = '<p class="text-chocolate/40 text-sm font-sans text-center">Start typing to search...</p>'; }
-        
-        document.getElementById('searchModal').addEventListener('click', function(e) { if (e.target === this) closeSearch(); });
         
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') { closeSearch(); closeConsultation(); closeProfile(); }

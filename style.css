@@ -107,10 +107,146 @@ body {
     display: none;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 .modal.active {
     display: flex;
     animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 2rem;
+    max-width: 480px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+}
+
+.modal-content .close-btn {
+    position: sticky;
+    top: 12px;
+    float: right;
+    margin: 12px 16px 0 0;
+    background: rgba(44, 24, 16, 0.08);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.4rem;
+    color: red;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+}
+.modal-content .close-btn:hover {
+    background: rgba(44, 24, 16, 0.15);
+    transform: rotate(90deg);
+}
+
+.modal-content .modal-header {
+    padding: 2rem 2rem 1.5rem;
+    text-align: center;
+    background: #2C1810;
+    color: #FFF9F0;
+    border-radius: 2rem 2rem 0 0;
+}
+.modal-content .modal-header .icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.modal-content .modal-header h2 {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.modal-content .modal-header p {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.modal-content .modal-body {
+    padding: 1.5rem 2rem 2rem;
+}
+
+.modal-content .modal-body label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2C1810;
+    margin-bottom: 0.4rem;
+}
+
+.modal-content .modal-body input,
+.modal-content .modal-body select,
+.modal-content .modal-body textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid rgba(44, 24, 16, 0.1);
+    border-radius: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background: #faf8f6;
+    color: #2C1810;
+}
+.modal-content .modal-body input:focus,
+.modal-content .modal-body select:focus,
+.modal-content .modal-body textarea:focus {
+    outline: none;
+    border-color: #C4A265;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(196, 162, 101, 0.1);
+}
+
+.modal-content .modal-body textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.modal-content .modal-body .whatsapp-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.modal-content .modal-body .whatsapp-btn:hover {
+    background: #1da851;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.modal-content .modal-body .whatsapp-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.modal-content .modal-footer {
+    padding: 0 2rem 1.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(44, 24, 16, 0.3);
 }
 
 .search-results {
@@ -392,4 +528,73 @@ body {
 }
 .hamburger-btn.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive modal adjustments */
+@media (max-width: 640px) {
+    .modal-content {
+        max-width: 100%;
+        margin: 0 12px;
+        border-radius: 1.5rem;
+        max-height: 85vh;
+    }
+    .modal-content .modal-header {
+        padding: 1.5rem 1.5rem 1.2rem;
+        border-radius: 1.5rem 1.5rem 0 0;
+    }
+    .modal-content .modal-header .icon {
+        font-size: 2.8rem;
+    }
+    .modal-content .modal-header h2 {
+        font-size: 1.5rem;
+    }
+    .modal-content .modal-body {
+        padding: 1.2rem 1.5rem 1.5rem;
+    }
+    .modal-content .modal-body input,
+    .modal-content .modal-body select,
+    .modal-content .modal-body textarea {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.9rem;
+    }
+    .modal-content .close-btn {
+        top: 8px;
+        margin: 8px 12px 0 0;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+    }
+    .modal-content .modal-footer {
+        padding: 0 1.5rem 1.2rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .modal-content .modal-header {
+        padding: 1.2rem 1rem 1rem;
+    }
+    .modal-content .modal-header .icon {
+        font-size: 2.2rem;
+    }
+    .modal-content .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    .modal-content .modal-body {
+        padding: 1rem 1rem 1.2rem;
+    }
+    .modal-content .modal-body input,
+    .modal-content .modal-body select,
+    .modal-content .modal-body textarea {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+        border-radius: 0.8rem;
+    }
+    .modal-content .close-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        top: 6px;
+        margin: 6px 8px 0 0;
+    }
 }
